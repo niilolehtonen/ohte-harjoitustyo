@@ -1,0 +1,80 @@
+niiloleh@melkki:~/ot_viikko1/tiedostoja$ git log --stat | cat
+commit 6d8cc566f7e8d71d8c1ac8a6f399a9b2737ee9d5
+Author: Lehtonen Niilo I N <niiloleh@melkki.cs.helsinki.fi>
+Date:   Mon Mar 20 18:44:03 2023 +0200
+    tehtävä11
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+commit e123d09e5b885f58ce7e64f86665b954e8851079
+Author: Lehtonen Niilo I N <niiloleh@melkki.cs.helsinki.fi>
+Date:   Mon Mar 20 18:35:12 2023 +0200
+    tiedostoja
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+commit b2787445c34e675d75d77237c59c8d8df8b6c4bd
+Author: Lehtonen Niilo I N <niiloleh@melkki.cs.helsinki.fi>
+Date:   Mon Mar 20 18:32:31 2023 +0200
+    eka.txt
+ eka.txt    | 2 +-
+ kolmas.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+commit 8266182fb217a9cb75a22da00e436d65fa93c7d6
+Author: Lehtonen Niilo I N <niiloleh@melkki.cs.helsinki.fi>
+Date:   Mon Mar 20 18:30:06 2023 +0200
+    eka.txt
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+commit 50072bdf63cde1b398d741da58cd54b3bcd8e685
+Author: Lehtonen Niilo I N <niiloleh@melkki.cs.helsinki.fi>
+Date:   Mon Mar 20 18:28:12 2023 +0200
+    toinen.txt poistettu
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+commit ce82f2d357cd52d6ff2922c752d048b810ca9210
+Author: Lehtonen Niilo I N <niiloleh@melkki.cs.helsinki.fi>
+Date:   Mon Mar 20 18:25:57 2023 +0200
+    poisto
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+commit ca13bf11c28914c0ac4ab42c7029057896109258
+Author: Lehtonen Niilo I N <niiloleh@melkki.cs.helsinki.fi>
+Date:   Mon Mar 20 18:24:33 2023 +0200
+    pitkä lisäys
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+commit ff98d7d04f45b485710b148684cb7391f3070fd6
+Author: Lehtonen Niilo I N <niiloleh@melkki.cs.helsinki.fi>
+Date:   Mon Mar 20 17:45:24 2023 +0200
+    stuff lisäys
+ stuff/moi.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+commit 10de4d2d95fec64972ae5a00019aa1fc16788cc5
+Author: Lehtonen Niilo I N <niiloleh@melkki.cs.helsinki.fi>
+Date:   Mon Mar 20 17:44:19 2023 +0200
+    toinen ja kolmas muokattu
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+commit 40e271339ac127c80097343077036b802e90170f
+Author: Lehtonen Niilo I N <niiloleh@melkki.cs.helsinki.fi>
+Date:   Mon Mar 20 17:43:12 2023 +0200
+    kolmas.txt lisäys
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+commit a381503b07e8b4c239de4ffcfea09450c32ad1a3
+Author: Lehtonen Niilo I N <niiloleh@melkki.cs.helsinki.fi>
+Date:   Mon Mar 20 17:40:32 2023 +0200
+    muutos ja lisäys
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+commit 7dda64ae94fffe356dda44bac33e9358af599a1c
+Author: Lehtonen Niilo I N <niiloleh@melkki.cs.helsinki.fi>
+Date:   Mon Mar 20 17:38:27 2023 +0200
+    tiedosto.txt luotu
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
