@@ -1,9 +1,7 @@
-# Ohjelmistotekniikka, harjoitustyö
+# Software engineering, practical work
 
-## Tehtävät
+## Exercises
 
-### Viikko 1
+[Week 1](https://github.com/niilolehtonen/ohte-harjoitustyo/blob/master/laskarit/viikko1)
 
-[komentorivi.txt](https://github.com/niilolehtonen/ohte-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
-
-[gitlog.txt](https://github.com/niilolehtonen/ohte-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+[Week 2](https://github.com/niilolehtonen/ohte-harjoitustyo/blob/master/laskarit/viikko2)
