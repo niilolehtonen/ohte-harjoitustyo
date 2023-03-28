@@ -1,4 +1,4 @@
-# Working time log
+# Work time log
 
 | Date | Time | Tasks  |
 | :----:|:-----| :-----|
