@@ -1,6 +1,6 @@
 import unittest
 from user import User
-from src.repositories import user_repository #This import doesn't work yet
+import user_repository
 
 
 class UserRepositoryTest(unittest.TestCase):
@@ -14,3 +14,4 @@ class UserRepositoryTest(unittest.TestCase):
         all_users = user_repository.find_all_users()
         self.assertEqual(len(all_users), 1)
         self.assertEqual(all_users[0].username, self.user_niilo.username)
+        self.assertEqual(all_users[0].password, self.user_niilo.password)
