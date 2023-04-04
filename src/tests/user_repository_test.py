@@ -1,6 +1,6 @@
 import unittest
 from user import User
-import user_repository
+from src.repositories import user_repository
 
 
 class UserRepositoryTest(unittest.TestCase):
