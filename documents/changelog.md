@@ -1,6 +1,6 @@
 # Changelog
 
-## Viikko 3
+## Week 3
 
 - Initialized poetry environment
 - Created a file that handles database connection and a file that can be used to initialize & modify the database
