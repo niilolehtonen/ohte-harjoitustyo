@@ -10,7 +10,7 @@ def get_user_by_row(row):
 class UserRepository:
 
     def __init__(self, connection):
-        self.connection = connection
+        self._connection = connection
 
     def get_all(self):
         
@@ -41,7 +41,7 @@ class UserRepository:
 
         cursor = self._connection.cursor()
 
-        cursor.execute('DELETE * FROM USERS')
+        cursor.execute('DELETE FROM USERS')
 
         self._connection.commit()
 

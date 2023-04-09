@@ -1,17 +1,23 @@
 import unittest
 from user import User
-from src.repositories import user_repository
+import os, sys
+from initialize_database import initialize_database
+
+dir = os.path.dirname("user_repository.py")
+sys.path.append(dir)
+from repositories.user_repository import user_repository
 
 
 class UserRepositoryTest(unittest.TestCase):
     def setUp(self):
+        initialize_database()
         user_repository.delete_all_users()
         self.user_niilo = User('niilo', 'niilo10')
         self.user_timo = User('timo', 'timo11')
     
     def test_create_user(self):
-        user_repository.create(self.user_niilo)
-        all_users = user_repository.find_all_users()
+        user_repository.create_user(self.user_niilo)
+        all_users = user_repository.get_all()
         self.assertEqual(len(all_users), 1)
         self.assertEqual(all_users[0].username, self.user_niilo.username)
         self.assertEqual(all_users[0].password, self.user_niilo.password)
