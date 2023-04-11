@@ -1,6 +1,7 @@
 from logging import root
 from register_view import RegisterView
 from login_view import LoginView
+from budget_view import BudgetView
 from tkinter import Tk
 
 
@@ -19,6 +20,11 @@ class UI:
     
     def _show_LoginView(self):
         self._current_view = LoginView(self._root)
+
+        self._current_view.pack()
+
+    def _show_BudgetView(self):
+        self._current_view = BudgetView(self._root)
 
         self._current_view.pack()
 
