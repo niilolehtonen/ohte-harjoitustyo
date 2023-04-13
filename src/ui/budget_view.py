@@ -1,9 +1,10 @@
 from tkinter import ttk, constants, StringVar
 
 class BudgetView:
-    def __init__(self, root):
+    def __init__(self, root, handle_show_LoginView):
         self._root = root
         self._frame = None
+        self._handle_show_LoginView = handle_show_LoginView
 
         self._initialize()
 
