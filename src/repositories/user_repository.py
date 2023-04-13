@@ -1,5 +1,5 @@
-from user import User
-from database_connection import get_database_connection
+from src.user import User
+from src.database_connection import get_database_connection
 
 def get_user_by_row(row):
     if row:
@@ -28,14 +28,24 @@ class UserRepository:
         return all_users
 
     def create_user(self, user):
-
+        print(user.username)
+        print(user.password)
+        #Printing for testing purposes
         cursor = self._connection.cursor()
 
         cursor.execute('INSERT INTO USERS (username, password) VALUES (?,?)',(user.username,user.password))
 
         self._connection.commit()
+        
+        #Testing database
+        all_users = user_repository.get_all()
+
+        for user in all_users:
+            print(user.username, user.password)
+
 
         return user
+
 
     def delete_all_users(self):
 
