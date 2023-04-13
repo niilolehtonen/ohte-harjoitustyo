@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "ohte-harjoitustyo"
+name = "src"
 version = "0.1.0"
 description = ""
 authors = ["niilolehtonen <niilo.i.lehtonen@gmail.com>"]
@@ -13,8 +13,8 @@ invoke = "^2.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.2.2"
 pylint = "^2.17.2"
+pytest = "^7.3.0"
 
 [build-system]
 requires = ["poetry-core"]
