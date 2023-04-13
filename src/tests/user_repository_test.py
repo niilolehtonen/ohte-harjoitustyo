@@ -1,11 +1,11 @@
 import unittest
 from user import User
 import os, sys
-from initialize_database import initialize_database
+from src.initialize_database import initialize_database
 
 dir = os.path.dirname("user_repository.py")
 sys.path.append(dir)
-from repositories.user_repository import user_repository
+from src.repositories.user_repository import user_repository
 
 
 class UserRepositoryTest(unittest.TestCase):
