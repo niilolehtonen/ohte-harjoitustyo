@@ -15,7 +15,8 @@ def create_tables(connection):
     cursor = connection.cursor()
 
     cursor.execute('''CREATE TABLE USERS (
-                        USERNAME TEXT PRIMARY KEY,
+                        USER_ID TEXT AUTO_INCREMENT PRIMARY KEY,
+                        USERNAME TEXT,
                         PASSWORD TEXT
         );
         ''')
