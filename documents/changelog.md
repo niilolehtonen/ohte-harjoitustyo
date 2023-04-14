@@ -9,3 +9,8 @@
 - Wrote a test for the UserRepository-class, that tests inserting an user to the database (this logic will be used in registration)
 - Started working on UI
 - Added first invokes
+
+## Week 4
+
+- UI now has 3 windows: Login, Register and Budget(the main app).
+- Added 'Build'-function for initializing the database.
