@@ -16,3 +16,7 @@ def coverage(ctx):
 @task
 def build(ctx):
     ctx.run("python3 src/build.py", pty=True)
+
+@task(coverage)
+def coverage_report(ctx):
+    ctx.run("coverage html", pty=True)
