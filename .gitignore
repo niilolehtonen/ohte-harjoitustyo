@@ -4,3 +4,4 @@ __pycache__
 htmlcov
 .pylintrc
 database.db
+htmlcov
