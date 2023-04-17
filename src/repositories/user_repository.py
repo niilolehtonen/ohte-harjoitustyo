@@ -59,7 +59,7 @@ class UserRepository:
 
         cursor = self._connection.cursor()
 
-        cursor.execute('SELECT  user FROM USERS WHERE username = ?',(username,))
+        cursor.execute('SELECT username, password FROM USERS WHERE username = ?',(username,))
 
         row = cursor.fetchone()
 
