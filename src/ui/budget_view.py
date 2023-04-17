@@ -17,6 +17,6 @@ class BudgetView:
 
         label1.grid(row=0, column=0)
 
-
+        self._frame.grid_columnconfigure(0, weight=1, minsize=400)
     def pack(self):
         self._frame.pack(fill=constants.X)

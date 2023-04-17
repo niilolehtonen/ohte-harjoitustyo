@@ -16,7 +16,7 @@ class UI:
     def _show_RegisterView(self,):
         self._hide_current_view()
 
-        self._current_view = RegisterView(self._root,self._show_BudgetView,self._show_LoginView)
+        self._current_view = RegisterView(self._root, self._show_RegisterView, self._show_LoginView)
 
         self._current_view.pack()
     
@@ -31,7 +31,7 @@ class UI:
     def _show_BudgetView(self):
         self._hide_current_view()
 
-        self._current_view = BudgetView(self._root,self._show_LoginView)
+        self._current_view = BudgetView(self._root, self._show_LoginView)
 
         self._current_view.pack()
 

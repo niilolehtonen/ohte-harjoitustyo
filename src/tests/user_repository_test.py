@@ -1,7 +1,7 @@
 import unittest
 from user import User
 import os, sys
-from src.initialize_database import initialize_database
+from initialize_database import initialize_database
 
 dir = os.path.dirname("user_repository.py")
 sys.path.append(dir)
