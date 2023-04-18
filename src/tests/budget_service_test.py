@@ -48,3 +48,4 @@ class BudgetServiceTest(unittest.TestCase):
             self.budget_service.login(username, password)
 
         self.user_repository.search_username.assert_called_once_with(username)
+        
