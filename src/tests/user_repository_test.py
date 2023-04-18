@@ -21,3 +21,41 @@ class UserRepositoryTest(unittest.TestCase):
         self.assertEqual(len(all_users), 1)
         self.assertEqual(all_users[0].username, self.user_niilo.username)
         self.assertEqual(all_users[0].password, self.user_niilo.password)
+
+    def test_get_all(self):
+
+        user_repository.create_user(self.user_niilo)
+        user_repository.create_user(self.user_timo)
+        all_users = user_repository.get_all()
+
+        self.assertEqual(len(all_users), 2)
+
+        self.assertEqual(all_users[0].username, self.user_niilo.username)
+        self.assertEqual(all_users[0].password, self.user_niilo.password)
+
+        self.assertEqual(all_users[1].username, self.user_timo.username)
+        self.assertEqual(all_users[1].password, self.user_timo.password)
+
+    def test_delete_all_users(self):
+        user_repository.create_user(self.user_niilo)
+        user_repository.create_user(self.user_timo)
+        all_users = user_repository.get_all()
+
+        self.assertEqual(len(all_users), 2)
+
+        user_repository.delete_all_users()
+
+        all_users = user_repository.get_all()
+        self.assertEqual(len(all_users), 0)
+
+    def test_search_username(self):
+        user_repository.create_user(self.user_niilo)
+        user_repository.create_user(self.user_timo)
+
+        retrieved_user = user_repository.search_username(self.user_niilo.username)
+        self.assertEqual(retrieved_user.username, self.user_niilo.username)
+        self.assertEqual(retrieved_user.password, self.user_niilo.password)
+
+        retrieved_user = user_repository.search_username(self.user_timo.username)
+        self.assertEqual(retrieved_user.username, self.user_timo.username)
+        self.assertEqual(retrieved_user.password, self.user_timo.password)
