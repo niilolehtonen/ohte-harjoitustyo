@@ -13,18 +13,37 @@
 
 1. Install dependecies:
 
-```bash
+```
 poetry install
 ```
 
 2. Initialize database:
 
-```bash
+```
 poetry run invoke build
 ```
 
 3. Start the application:
 
-```bash
+```
 poetry run invoke start
+```
+
+## Other command line commands
+
+Command for running PyTest:
+
+```
+poetry run invoke test
+```
+
+Command for fetching test coverage:
+
+```
+poetry run invoke coverage-report
+```
+
+Command for running PyLint:
+```
+poetry run invoke lint
 ```
