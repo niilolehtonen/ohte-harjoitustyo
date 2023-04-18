@@ -4,8 +4,7 @@ from src.database_connection import get_database_connection
 def get_user_by_row(row):
     if row:
         return User(row['username'], row['password'])
-    else:
-        return None
+    return None
 
 class UserRepository:
 
@@ -13,7 +12,7 @@ class UserRepository:
         self._connection = connection
 
     def get_all(self):
-        
+
         cursor = self._connection.cursor()
 
         cursor.execute('SELECT * FROM USERS')
@@ -24,7 +23,7 @@ class UserRepository:
 
         for row in rows:
             all_users.append(get_user_by_row(row))
-        
+
         return all_users
 
     def create_user(self, user):
@@ -36,7 +35,7 @@ class UserRepository:
         cursor.execute('INSERT INTO USERS (username, password) VALUES (?,?)',(user.username,user.password))
 
         self._connection.commit()
-        
+
         #Testing database
         all_users = user_repository.get_all()
 

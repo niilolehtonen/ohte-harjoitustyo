@@ -17,7 +17,7 @@ class BudgetService:
         return user
 
     def login(self,username,password):
-        
+
         user = self._user_repository.search_username(username)
 
         if not user or user.password != password:
@@ -26,6 +26,5 @@ class BudgetService:
         self._user = user
 
         return user
-
 
 budget_service = BudgetService()
