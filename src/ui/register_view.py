@@ -46,13 +46,13 @@ class RegisterView:
 
         button_register = ttk.Button(master=self._frame,text="Register",command=self._create_account_handler)
 
-        button_login = ttk.Button(master=self._frame,text="Login",command=self._handle_show_login_view)
+        button_login = ttk.Button(master=self._frame,text="Back to Login",command=self._handle_show_login_view)
 
         self._initialize_username_field()
         self._initialize_password_field()
 
-        button_login.grid(padx=5, pady=5, sticky=constants.W)
         button_register.grid(padx=5, pady=5, sticky=constants.W)
+        button_login.grid(padx=5, pady=5, sticky=constants.W)
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
     def pack(self):
