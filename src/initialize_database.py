@@ -5,8 +5,12 @@ def drop_tables(connection):
     cursor = connection.cursor()
 
     cursor.execute('''
-        DROP TABLE IF EXISTS USERS,TRANSACTIONS;
+        DROP TABLE IF EXISTS USERS;
     ''')
+
+    cursor.execute('''
+            DROP TABLE IF EXISTS TRANSACTIONS;
+        ''')
 
     connection.commit()
 
@@ -22,7 +26,7 @@ def create_tables(connection):
         ''')
     
     cursor.execute('''CREATE TABLE TRANSACTIONS (
-                        USER_ID INTEGER,
+                        USERNAME TEXT,
                         TYPE TEXT,
                         NAME TEXT,
                         AMOUNT INTEGER    
