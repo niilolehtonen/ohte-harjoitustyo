@@ -15,3 +15,10 @@
 - UI now has 3 windows: Login, Register and Budget(the main app).
 - Added 'Build'-function for initializing the database.
 - A user can now create an account and login to the application. ('Error handling regarding this functionality still work in progress. Invalid username,password etc..')
+
+## Week 5
+
+- Created transaction repository
+- Expanded the database for 'transactions'
+- Implemented logic for the budget view of the application (adding expense, adding income & showcasing the budget (income - outcome))
+- Tests for transaction repository
