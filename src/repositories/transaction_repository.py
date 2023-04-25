@@ -7,31 +7,30 @@ class TransactionRepository:
     def __init__(self,connection):
         self._connection = connection
 
-    def get_user_id(self,user):
+    #def get_user_id(self,user):
+    #    cursor = self._connection.cursor()
+
+    #    cursor.execute('SELECT user_id FROM USERS WHERE username = ?',(user.username,))
+
+    #    id = cursor.fetchone()
+
+    #    return id
+    
+    def new_transaction(self, transaction):
+        
         cursor = self._connection.cursor()
-
-        cursor.execute('SELECT user_id FROM USERS WHERE username = ?',(user.username))
-
-        id = cursor.fetchone()
-
-        return id
-
-    def new_transcation(self,transaction):
-
-        cursor = self._connection.cursor()
-
-        cursor.execute('INSERT INTO TRANSACTIONS (user_id,type,name,amount) VALUES (?,?,?,?)',(transaction.user_id,transaction.type,transaction.name,transaction.amount))
-
+        
+        cursor.execute('INSERT INTO TRANSACTIONS (username, type, name, amount) VALUES (?, ?, ?, ?)', 
+                    (transaction.username, transaction.type, transaction.name, transaction.amount))
+        
         self._connection.commit()
 
-    def get_transactions(self,user):
+    def get_transactions(self, user):
+        username = user.username
+        cursor = self._connection.cursor()
+        cursor.execute('SELECT * FROM TRANSACTIONS WHERE username = ?', (username,))
+        rows = cursor.fetchall()
+        return [Transaction(*row) for row in rows]
 
-        user_id = self.get_user_id(user)
-
-        cursor = self._connection.cursor('SELECT * FROM TRANSACTIONS WHERE user_id = ?'(user_id))
-
-        transactions = cursor.fetchall()
-
-        return transactions
 
 transaction_repository = TransactionRepository(get_database_connection())

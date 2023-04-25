@@ -27,22 +27,21 @@ class BudgetService:
             raise InvalidCredentialsError("Invalid username or password")
 
         self._user = user
-
         return user
     
     def new_expense(self,name,amount):
 
-        u_id = self._transaction_repository.get_user_id(self._user)
+        username = self._user.username
         type = 'expense'
-        expense = Transaction(u_id,type,name,amount)
-        self._transaction_repository.new_transcation(expense)
+        expense = Transaction(username,type,name,amount)
+        self._transaction_repository.new_transaction(expense)
 
     def new_income(self,name,amount):
 
-        u_id = self._transaction_repository.get_user_id(self._user)
+        username = self._user.username
         type = 'income'
-        income = Transaction(u_id,type,name,amount)
-        self._transaction_repository.new_transcation(income)
+        income = Transaction(username,type,name,amount)
+        self._transaction_repository.new_transaction(income)
 
     def show_budget(self):
         expenses = []
@@ -50,20 +49,20 @@ class BudgetService:
         sum_expenses = 0
         sum_incomes = 0
         transactions = self._transaction_repository.get_transactions(self._user)
-        if transactions:
+        if len(transactions) != 0:
             for i in transactions:
-                if i[1] == 'expense':
-                    expenses.append(i)
-                if i[1] == 'income':
-                    incomes.append(i)
+                if i.type == 'expense':
+                   expenses.append(i)
+                if i.type == 'income':
+                   incomes.append(i)
         
         if len(expenses) > 0:
             for i in expenses:
-                sum_expenses += i[3]
+                sum_expenses += int(i.amount)
 
         if len(incomes) > 0:
             for i in incomes:
-                sum_incomes += i[3]
+                sum_incomes += int(i.amount)
 
         budget = sum_incomes - sum_expenses
 
