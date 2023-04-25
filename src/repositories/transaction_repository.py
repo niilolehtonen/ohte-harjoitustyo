@@ -7,15 +7,6 @@ class TransactionRepository:
     def __init__(self,connection):
         self._connection = connection
 
-    #def get_user_id(self,user):
-    #    cursor = self._connection.cursor()
-
-    #    cursor.execute('SELECT user_id FROM USERS WHERE username = ?',(user.username,))
-
-    #    id = cursor.fetchone()
-
-    #    return id
-    
     def new_transaction(self, transaction):
         
         cursor = self._connection.cursor()
