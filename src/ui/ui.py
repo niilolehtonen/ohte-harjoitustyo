@@ -12,6 +12,7 @@ class UI:
 
     def start(self):
         self._show_LoginView()
+        #self._show_BudgetView()
 
     def _show_RegisterView(self,):
         self._hide_current_view()
