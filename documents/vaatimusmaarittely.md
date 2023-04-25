@@ -8,20 +8,20 @@ The app has only one user role which is a normal user.
 
 ## GUI
 The application consist of three windows
-- Budget window
-- Login window 
-- Register window
+- Budget window (IN PROGRESS)
+- Login window (IN PROGRESS)
+- Register window (IN PROGRESS)
 
 ## Functionality
 
 Before logging in
-- The user can register a new account
-- The user can login to the application
+- The user can register a new account (DONE - Except error handling)
+- The user can login to the application (DONE - Except error handling)
 
 After logging in
-- The user can add an income (can be multiple)
-- The user can add a cost (can be multiple)
-- The user gets displayd with an overview of all individual costs and incomes, total costs and incomes & what's left of the monthly budget
+- The user can add an income (can be multiple) (DONE)
+- The user can add a cost (can be multiple) (DONE)
+- The user gets displayed with an overview of all individual costs and incomes, total costs and incomes & what's left of the monthly budget (PARTLY DONE)
 - The user can delete an income or a cost
 - The user can logout of the application and return to the login window
 
