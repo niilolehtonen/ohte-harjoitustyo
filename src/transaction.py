@@ -5,4 +5,3 @@ class Transaction:
         self.type = type # Expense or Income
         self.name = name
         self.amount = amount
-

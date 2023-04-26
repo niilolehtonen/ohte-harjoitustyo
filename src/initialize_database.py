@@ -24,7 +24,7 @@ def create_tables(connection):
                         PASSWORD TEXT
         );
         ''')
-    
+
     cursor.execute('''CREATE TABLE TRANSACTIONS (
                         USERNAME TEXT,
                         TYPE TEXT,

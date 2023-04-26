@@ -1,5 +1,5 @@
-from src.user import User
-from src.database_connection import get_database_connection
+from src.user import User # pylint: disable=import-error
+from src.database_connection import get_database_connection # pylint: disable=import-error
 
 def get_user_by_row(row):
     if row:
@@ -32,15 +32,16 @@ class UserRepository:
         #Printing for testing purposes
         cursor = self._connection.cursor()
 
-        cursor.execute('INSERT INTO USERS (username, password) VALUES (?,?)',(user.username,user.password))
+        cursor.execute('INSERT INTO USERS (username, password) VALUES (?,?)',
+                        (user.username,user.password))
 
         self._connection.commit()
 
         #Testing database
         all_users = user_repository.get_all()
 
-        for user in all_users:
-            print(user.username, user.password)
+        for i in all_users:
+            print(i.username, i.password)
 
 
         return user

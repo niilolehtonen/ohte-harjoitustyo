@@ -1,14 +1,16 @@
-from src.user import User
-from src.transaction import Transaction
-from src.repositories.user_repository import (user_repository as default_user_repository)
-from src.repositories.transaction_repository import (transaction_repository as default_transaction_repository)
+from src.user import User # pylint: disable=import-error
+from src.transaction import Transaction # pylint: disable=import-error
+from src.repositories.user_repository import (user_repository as default_user_repository) # pylint: disable=import-error
+from src.repositories.transaction_repository import (transaction_repository as
+                                                    default_transaction_repository) # pylint: disable=import-error
 
 class InvalidCredentialsError(Exception):
     pass
 
 class BudgetService:
 
-    def __init__(self,user_repository=default_user_repository,transaction_repository=default_transaction_repository):
+    def __init__(self,user_repository=default_user_repository,
+                transaction_repository=default_transaction_repository):
         self._user = None
         self._user_repository = user_repository
         self._transaction_repository = transaction_repository
@@ -28,7 +30,7 @@ class BudgetService:
 
         self._user = user
         return user
-    
+
     def new_expense(self,name,amount):
 
         username = self._user.username
@@ -52,10 +54,10 @@ class BudgetService:
         if len(transactions) != 0:
             for i in transactions:
                 if i.type == 'expense':
-                   expenses.append(i)
+                    expenses.append(i)
                 if i.type == 'income':
-                   incomes.append(i)
-        
+                    incomes.append(i)
+
         if len(expenses) > 0:
             for i in expenses:
                 sum_expenses += int(i.amount)
@@ -68,6 +70,4 @@ class BudgetService:
 
         return (budget,expenses,incomes)
 
-        
-        
 budget_service = BudgetService()
