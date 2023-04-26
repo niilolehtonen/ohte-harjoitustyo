@@ -22,3 +22,7 @@
 - Expanded the database for 'transactions'
 - Implemented logic for the budget view of the application (adding expense, adding income & showcasing the budget (income - outcome))
 - Tests for transaction repository
+
+## Week 6
+
+- Listboxes that display name & amount of each income implemented to the UI
