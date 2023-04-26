@@ -1,4 +1,4 @@
-from tkinter import ttk, constants, StringVar
+from tkinter import ttk, constants, StringVar, Listbox, END
 from src.services.budget_service import budget_service
 
 class BudgetView:
@@ -15,17 +15,19 @@ class BudgetView:
         budget = budget_service.show_budget()[0]
         self._budget_label.config(text=f'{budget}e')
 
-    def _handle_new_expense(self):
-        expense_a = self._new_expense_amount_entry.get()
-        expense_n = self._new_expense_name_entry.get()
-        budget_service.new_expense(expense_n, expense_a)
-        self._update_budget_label()
-
     def _handle_new_income(self):
         income_a = self._new_income_amount_entry.get()
         income_n = self._new_income_name_entry.get()
         budget_service.new_income(income_n, income_a)
         self._update_budget_label()
+        self._income_listbox.insert(END, f"{income_n}: {income_a}e")
+
+    def _handle_new_expense(self):
+        expense_a = self._new_expense_amount_entry.get()
+        expense_n = self._new_expense_name_entry.get()
+        budget_service.new_expense(expense_n, expense_a)
+        self._update_budget_label()
+        self._expense_listbox.insert(END, f"{expense_n}: {expense_a}e")
 
     def _initialize_budget(self):
         show_budget = budget_service.show_budget()
@@ -65,84 +67,22 @@ class BudgetView:
             command=self._handle_new_income
         )
 
-        self._amount_label_e.grid(
-            row=2,
-            column=0,
-            padx=5,
-            pady=5,
-            #sticky=constants.EW
-        )
+        self._income_listbox = Listbox(master=self._frame)
+        self._expense_listbox = Listbox(master=self._frame)
 
-        self._new_expense_amount_entry.grid(
-            row=3,
-            column=0,
-            padx=5,
-            pady=5,
-            #sticky=constants.EW
-        )
+        self._amount_label_i.grid(row=2, column=2, padx=5, pady=5)
+        self._new_income_amount_entry.grid(row=3, column=2, padx=5, pady=5)
+        self._name_label_i.grid(row=4, column=2, padx=5, pady=5)
+        self._new_income_name_entry.grid(row=5, column=2, padx=5, pady=5)
+        new_income_button.grid(row=6, column=2, padx=5, pady=5)
+        self._income_listbox.grid(row=7, column=2, padx=5, pady=5)
 
-        self._name_label_e.grid(
-            row=4,
-            column=0,
-            padx=5,
-            pady=5,
-            #sticky=constants.EW
-        )
-
-        self._new_expense_name_entry.grid(
-            row=5,
-            column=0,
-            padx=5,
-            pady=5,
-            #sticky=constants.EW
-        )
-
-        new_expense_button.grid(
-            row=6,
-            column=0,
-            padx=5,
-            pady=5,
-            #sticky=constants.EW
-        )
-        self._amount_label_i.grid(
-            row=2,
-            column=2,
-            padx=5,
-            pady=5,
-            #sticky=constants.EW
-        )
-
-        self._new_income_amount_entry.grid(
-            row=3,
-            column=2,
-            padx=5,
-            pady=5,
-            #sticky=constants.EW
-        )
-
-        self._name_label_i.grid(
-            row=4,
-            column=2,
-            padx=5,
-            pady=5,
-            #sticky=constants.EW
-        )
-
-        self._new_income_name_entry.grid(
-            row=5,
-            column=2,
-            padx=5,
-            pady=5,
-            #sticky=constants.EW
-        )
-
-        new_income_button.grid(
-            row=6,
-            column=2,
-            padx=5,
-            pady=5,
-            #sticky=constants.EW
-        )
+        self._amount_label_e.grid(row=2, column=0, padx=5, pady=5)
+        self._new_expense_amount_entry.grid(row=3, column=0, padx=5, pady=5)
+        self._name_label_e.grid(row=4, column=0, padx=5, pady=5)
+        self._new_expense_name_entry.grid(row=5, column=0, padx=5, pady=5)
+        new_expense_button.grid(row=6, column=0, padx=5, pady=5)
+        self._expense_listbox.grid(row=7, column=0, padx=5, pady=5)
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
@@ -153,7 +93,10 @@ class BudgetView:
         self._initialize_budget()
         self._initialize_footer()
 
+        self._frame.grid_rowconfigure(7, weight=1, minsize=50)
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
+        self._frame.grid_columnconfigure(1, weight=1, minsize=400)
+        self._frame.grid_columnconfigure(2, weight=1, minsize=400)
 
     def pack(self):
         self._frame.pack()
