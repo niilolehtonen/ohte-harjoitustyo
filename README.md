@@ -1,5 +1,8 @@
 # Software engineering, practical exercise
 
+## Budget application
+- This application allows users to keep track of their monthly budget. A user can add an income or expense and the application displays how much of your budget you still have left. Everytime a user adds an income or an expense to the application the window will refresh and display changes in the budget.
+
 ## Documentation
 
 - [Requirements Specification](https://github.com/niilolehtonen/ohte-harjoitustyo/blob/master/documents/vaatimusmaarittely.md)
