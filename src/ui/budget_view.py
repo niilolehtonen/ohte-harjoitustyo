@@ -1,4 +1,4 @@
-from tkinter import ttk, constants, StringVar, Listbox, END
+from tkinter import ttk, Listbox, END
 from src.services.budget_service import budget_service
 
 class BudgetView:
@@ -6,8 +6,8 @@ class BudgetView:
         self._root = root
         self._frame = None
         self._handle_show_LoginView = handle_show_LoginView
-        #self._handle_logout = handle_logout
-        
+
+
         self._initialize()
 
     def destroy(self):
@@ -20,21 +20,31 @@ class BudgetView:
         income_a = self._new_income_amount_entry.get()
         income_n = self._new_income_name_entry.get()
         budget_service.new_income(income_n, income_a)
+        show_budget = budget_service.show_budget()
         self._update_budget_label()
-        self._income_listbox.insert(END, f"{income_n}: {income_a}e")
+        self._income_listbox.delete(0, END)
+        for income in show_budget[2]:
+            self._income_listbox.insert(END, f"{income.name}: {income.amount}e")
 
     def _handle_new_expense(self):
         expense_a = self._new_expense_amount_entry.get()
         expense_n = self._new_expense_name_entry.get()
         budget_service.new_expense(expense_n, expense_a)
+        show_budget = budget_service.show_budget()
         self._update_budget_label()
-        self._expense_listbox.insert(END, f"{expense_n}: {expense_a}e")
+        self._expense_listbox.delete(0, END)
+        for expense in show_budget[1]:
+            self._expense_listbox.insert(END, f"{expense.name}: {expense.amount}e")
 
     def _initialize_budget(self):
         show_budget = budget_service.show_budget()
         budget = show_budget[0]
-        expenses = show_budget[1]
-        incomes = show_budget[2]
+
+        for income in show_budget[2]:
+            self._income_listbox.insert(END, f"{income.name}: {income.amount}e")
+
+        for expense in show_budget[1]:
+            self._expense_listbox.insert(END, f"{expense.name}: {expense.amount}e")
 
         self._budget_label = ttk.Label(master=self._frame,text=f'{budget}e')
         self._budget_label.grid(
@@ -42,7 +52,6 @@ class BudgetView:
             column=1,
             padx=5,
             pady=5,
-            #sticky=constants.EW
         )
 
     def _logout_handler(self):
@@ -96,14 +105,15 @@ class BudgetView:
         new_expense_button.grid(row=6, column=0, padx=5, pady=5)
         self._expense_listbox.grid(row=7, column=0, padx=5, pady=5)
         logout_button.grid(row=8, column=1, padx=5, pady=5)
+
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         label1 = ttk.Label(master=self._frame, text="Budget for this month")
 
         label1.grid(row=0, column=1)
 
-        self._initialize_budget()
         self._initialize_footer()
+        self._initialize_budget()
 
         self._frame.grid_rowconfigure(7, weight=1, minsize=50)
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
@@ -112,4 +122,3 @@ class BudgetView:
 
     def pack(self):
         self._frame.pack()
-        #self._frame.pack(fill=constants.X)
