@@ -13,4 +13,7 @@
 | 24.4| 5    | Created transaction repository |
 | 25.4| 10    | Fixing problems, implementing functionality & logic, writing more tests |
 | 26.4| 2    | Listboxes for BudgetView & pylint |
-| Total|40| |
+| 30.4| 2    | Implemented logout |
+| 30.4| 2    | Fetching income & outcome values from the database to display in the listboxes |
+| 30.4| 2    | Writing docstring documentation |
+| Total|46| |
