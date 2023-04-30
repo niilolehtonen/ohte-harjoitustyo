@@ -70,4 +70,7 @@ class BudgetService:
 
         return (budget,expenses,incomes)
 
+    def logout(self):
+        self._user = None
+
 budget_service = BudgetService()

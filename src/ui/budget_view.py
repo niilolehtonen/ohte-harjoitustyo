@@ -6,6 +6,7 @@ class BudgetView:
         self._root = root
         self._frame = None
         self._handle_show_LoginView = handle_show_LoginView
+        #self._handle_logout = handle_logout
         
         self._initialize()
 
@@ -44,6 +45,11 @@ class BudgetView:
             #sticky=constants.EW
         )
 
+    def _logout_handler(self):
+        budget_service.logout()
+        #self._handle_logout()
+        self._handle_show_LoginView()
+
     def _initialize_footer(self):
         self._new_expense_amount_entry = ttk.Entry(master=self._frame)
         self._new_expense_name_entry = ttk.Entry(master=self._frame)
@@ -67,6 +73,12 @@ class BudgetView:
             command=self._handle_new_income
         )
 
+        logout_button = ttk.Button(
+            master=self._frame,
+            text="Logout",
+            command=self._logout_handler
+        )
+
         self._income_listbox = Listbox(master=self._frame)
         self._expense_listbox = Listbox(master=self._frame)
 
@@ -83,7 +95,7 @@ class BudgetView:
         self._new_expense_name_entry.grid(row=5, column=0, padx=5, pady=5)
         new_expense_button.grid(row=6, column=0, padx=5, pady=5)
         self._expense_listbox.grid(row=7, column=0, padx=5, pady=5)
-
+        logout_button.grid(row=8, column=1, padx=5, pady=5)
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         label1 = ttk.Label(master=self._frame, text="Budget for this month")
