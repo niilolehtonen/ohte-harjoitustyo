@@ -1,7 +1,7 @@
 from src.user import User # pylint: disable=import-error
 from src.transaction import Transaction # pylint: disable=import-error
 from src.repositories.user_repository import (user_repository as default_user_repository) # pylint: disable=import-error
-from src.repositories.transaction_repository import (transaction_repository as
+from src.repositories.transaction_repository import (transaction_repository as # pylint: disable=import-error
                                                     default_transaction_repository) # pylint: disable=import-error
 
 class InvalidCredentialsError(Exception):
