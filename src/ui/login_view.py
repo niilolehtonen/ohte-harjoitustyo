@@ -5,6 +5,14 @@ sys.path.append(dir)
 from src.services.budget_service import budget_service, InvalidCredentialsError
 
 class LoginView:
+    """Class for the UI of the register window.
+
+    Attributes:
+        root: TKinter element where the view will be initialized.
+        handle_login: Value that is called when logging in.
+        handle_show_RegisterView: Value that is called when switching to register view.
+    """
+
     def __init__(self, root, handle_login, handle_show_RegisterView):
         self._root = root
         self._frame = None
@@ -14,10 +22,16 @@ class LoginView:
         self._initialize()
 
     def destroy(self):
+        """Destroys the frame.
+        """
+
         self._frame.destroy()
 
 
     def _login_handler(self):
+        """Method for handling login button on-click.
+        """
+
         username = self._username_entry.get()
         password = self._password_entry.get()
 
@@ -28,6 +42,9 @@ class LoginView:
             self._show_error("Invalid username or password")
 
     def _initialize_username_field(self):
+        """Initializes username entry field.
+        """
+
         username_label = ttk.Label(master=self._frame, text="Username")
 
         self._username_entry = ttk.Entry(master=self._frame)
@@ -36,6 +53,9 @@ class LoginView:
         self._username_entry.grid(padx=5, pady=5, sticky=constants.EW)
 
     def _initialize_password_field(self):
+        """Initializes password entry field.
+        """
+
         password_label = ttk.Label(master=self._frame, text="Password")
 
         self._password_entry = ttk.Entry(master=self._frame, show="*")
@@ -44,6 +64,9 @@ class LoginView:
         self._password_entry.grid(padx=5, pady=5, sticky=constants.EW)
 
     def _initialize(self):
+        """Initializes the view.
+        """
+
         self._frame = ttk.Frame(master=self._root)
         label1 = ttk.Label(master=self._frame, text="Login")
         
@@ -60,5 +83,9 @@ class LoginView:
         button_create.grid(padx=5, pady=5, sticky=constants.EW)
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
+
     def pack(self):
+        """Shows the frame.
+        """
+
         self._frame.pack(fill=constants.X)

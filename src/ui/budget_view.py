@@ -2,6 +2,13 @@ from tkinter import ttk, Listbox, END
 from src.services.budget_service import budget_service
 
 class BudgetView:
+    """Class responsible for the UI of the budget view
+    
+    Attributes:
+        root: TKinter element where the view will be initialized.
+        handle_show_LoginView: Value that is called when switching to login view.
+    """
+
     def __init__(self, root, handle_show_LoginView):
         self._root = root
         self._frame = None
@@ -11,12 +18,22 @@ class BudgetView:
         self._initialize()
 
     def destroy(self):
+        """Destroy the frame.
+        """
+
         self._frame.destroy()
+
     def _update_budget_label(self):
+        """Updates the displayed budget value
+        """
+
         budget = budget_service.show_budget()[0]
         self._budget_label.config(text=f'{budget}e')
 
     def _handle_new_income(self):
+        """On-click functionality for 'Add income' button.
+        """
+
         income_a = self._new_income_amount_entry.get()
         income_n = self._new_income_name_entry.get()
         budget_service.new_income(income_n, income_a)
@@ -27,6 +44,9 @@ class BudgetView:
             self._income_listbox.insert(END, f"{income.name}: {income.amount}e")
 
     def _handle_new_expense(self):
+        """On-click functionality for 'Add income' button.
+        """
+ 
         expense_a = self._new_expense_amount_entry.get()
         expense_n = self._new_expense_name_entry.get()
         budget_service.new_expense(expense_n, expense_a)
@@ -37,6 +57,9 @@ class BudgetView:
             self._expense_listbox.insert(END, f"{expense.name}: {expense.amount}e")
 
     def _initialize_budget(self):
+        """Initial query for the budget, expense and income values.
+        """
+
         show_budget = budget_service.show_budget()
         budget = show_budget[0]
 
@@ -55,11 +78,16 @@ class BudgetView:
         )
 
     def _logout_handler(self):
+        """On-click function for logging out.
+        """
         budget_service.logout()
         #self._handle_logout()
         self._handle_show_LoginView()
 
     def _initialize_footer(self):
+        """Initializes the footer.
+        """
+
         self._new_expense_amount_entry = ttk.Entry(master=self._frame)
         self._new_expense_name_entry = ttk.Entry(master=self._frame)
         self._new_income_amount_entry = ttk.Entry(master=self._frame)
@@ -107,6 +135,9 @@ class BudgetView:
         logout_button.grid(row=8, column=1, padx=5, pady=5)
 
     def _initialize(self):
+        """Initialize the view.
+        """
+
         self._frame = ttk.Frame(master=self._root)
         label1 = ttk.Label(master=self._frame, text="Budget for this month")
 
@@ -121,4 +152,7 @@ class BudgetView:
         self._frame.grid_columnconfigure(2, weight=1, minsize=400)
 
     def pack(self):
+        """Show the view.
+        """
+
         self._frame.pack()
