@@ -8,7 +8,12 @@ class InvalidCredentialsError(Exception):
     pass
 
 class BudgetService:
+    """Class responsible for logic of the application
 
+    Attributes:
+        user_repository: Instance of the user-repository class.
+        transaction_repository: Instance of the transaction-repository class.
+    """
     def __init__(self,user_repository=default_user_repository,
                 transaction_repository=default_transaction_repository):
         self._user = None
@@ -16,12 +21,32 @@ class BudgetService:
         self._transaction_repository = transaction_repository
 
     def create_user(self, username, password):
+        """Creates a new user (registration).
 
+        Args:
+            username (str): Username for the new user.
+            password (str): Password for the new user.
+
+        Returns:
+            user: Returns the user-object after it has been inserted in the database.
+        """
         user = self._user_repository.create_user(User(username, password))
 
         return user
 
     def login(self,username,password):
+        """Method for checking that the login credentials are matching.
+
+        Args:
+            username (str): Username
+            password (str): Password
+
+        Raises:
+            InvalidCredentialsError: An error that is raised if the credentials don't match.
+
+        Returns:
+            user: User-object
+        """
 
         user = self._user_repository.search_username(username)
 
@@ -32,6 +57,12 @@ class BudgetService:
         return user
 
     def new_expense(self,name,amount):
+        """Method for adding a new expense
+
+        Args:
+            name (str): Name/description of the expense.
+            amount (str): Amount of the expense.
+        """
 
         username = self._user.username
         type = 'expense'
@@ -39,6 +70,12 @@ class BudgetService:
         self._transaction_repository.new_transaction(expense)
 
     def new_income(self,name,amount):
+        """Method for adding a new income.
+
+        Args:
+            name (str): Name/description of the income.
+            amount (str): Amount of the income.
+        """
 
         username = self._user.username
         type = 'income'
@@ -46,6 +83,12 @@ class BudgetService:
         self._transaction_repository.new_transaction(income)
 
     def show_budget(self):
+        """Method for fetching the incomes, outcomes and budget(incomes-outcomes).
+
+        Returns:
+            tuple: Returns budget value and individual lists of incomes and expenses.
+        """
+
         expenses = []
         incomes = []
         sum_expenses = 0

@@ -7,12 +7,21 @@ def get_user_by_row(row):
     return None
 
 class UserRepository:
+    """Class responsible for database operations regarding users
+
+    Attributes:
+        connection: Database connection.
+    """
 
     def __init__(self, connection):
         self._connection = connection
 
     def get_all(self):
+        """Method to fetch all the users from the database.
 
+        Returns:
+            list: Returns a list of user-objects.
+        """
         cursor = self._connection.cursor()
 
         cursor.execute('SELECT * FROM USERS')
@@ -27,9 +36,14 @@ class UserRepository:
         return all_users
 
     def create_user(self, user):
-        print(user.username)
-        print(user.password)
-        #Printing for testing purposes
+        """Method for inserting a new user into the database.
+
+        Args:
+            user: User-object that will be inserted into the database.
+
+        Returns:
+            user: User-object
+        """
         cursor = self._connection.cursor()
 
         cursor.execute('INSERT INTO USERS (username, password) VALUES (?,?)',
@@ -37,17 +51,11 @@ class UserRepository:
 
         self._connection.commit()
 
-        #Testing database
-        all_users = user_repository.get_all()
-
-        for i in all_users:
-            print(i.username, i.password)
-
-
         return user
 
-
     def delete_all_users(self):
+        """Method for deleting users from the database
+        """
 
         cursor = self._connection.cursor()
 
@@ -56,7 +64,14 @@ class UserRepository:
         self._connection.commit()
 
     def search_username(self,username):
+        """Method for searching a user by username
 
+        Args:
+            username (str): Username to be searched
+
+        Returns:
+            user: Returns the matching user-object for the username.
+        """
         cursor = self._connection.cursor()
 
         cursor.execute('SELECT username, password FROM USERS WHERE username = ?',(username,))
