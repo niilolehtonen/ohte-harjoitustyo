@@ -25,4 +25,8 @@
 
 ## Week 6
 
-- Listboxes that display name & amount of each income implemented to the UI
+- Listboxes that display name & amount of each income implemented to the UI.
+- Implemented logout functionality & added logout tot the BudgetView UI.
+- The values for incomes & expenses are fetched to the listboxes from the database.
+- Started to write Docstring documentation.
+
