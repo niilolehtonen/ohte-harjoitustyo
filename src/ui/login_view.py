@@ -29,7 +29,7 @@ class LoginView:
 
 
     def _login_handler(self):
-        """Method for handling login button on-click.
+        """On-click functionality for the login button.
         """
 
         username = self._username_entry.get()

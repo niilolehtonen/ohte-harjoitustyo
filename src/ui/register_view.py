@@ -26,7 +26,7 @@ class RegisterView:
         self._initialize()
 
     def _create_account_handler(self):
-        """Method for handling the register button on-click.
+        """On-click functionality for the register button.
         """
 
         username = self._username_entry.get()

@@ -8,7 +8,8 @@ from tkinter import Tk
 class UI:
     """Class responsible for the whole UI.
 
-    Attributes: TKinter element where the view will be initialized.
+    Attributes:
+        root: TKinter element where the view will be initialized.
     """
     def __init__(self, root):
         self._root = root
