@@ -13,6 +13,10 @@
 
 - [Architecture Description](https://github.com/niilolehtonen/ohte-harjoitustyo/blob/master/documents/architecture.md)
 
+## Releases
+
+- [Release v1.0(Week 5)](https://github.com/niilolehtonen/ohte-harjoitustyo/releases/tag/Week5)
+
 ## Installation
 
 1. Install dependecies:
