@@ -16,4 +16,6 @@
 | 30.4| 2    | Implemented logout |
 | 30.4| 2    | Fetching income & outcome values from the database to display in the listboxes |
 | 30.4| 2    | Writing docstring documentation |
-| Total|46| |
+| 30.4| 1    | Making class diagram |
+| 30.4| 1    | Writing instrucctions documentation |
+| Total|48| |
