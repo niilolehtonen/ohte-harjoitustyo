@@ -5,12 +5,10 @@
 
 ## Documentation
 
+- [Instructions](https://github.com/niilolehtonen/ohte-harjoitustyo/blob/master/documents/instructions.md)
 - [Requirements Specification](https://github.com/niilolehtonen/ohte-harjoitustyo/blob/master/documents/vaatimusmaarittely.md)
-
 - [Work Time Log](https://github.com/niilolehtonen/ohte-harjoitustyo/blob/master/documents/tyoaikakirjanpito.md)
-
 - [Changelog](https://github.com/niilolehtonen/ohte-harjoitustyo/blob/master/documents/changelog.md)
-
 - [Architecture Description](https://github.com/niilolehtonen/ohte-harjoitustyo/blob/master/documents/architecture.md)
 
 ## Releases
