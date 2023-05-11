@@ -18,7 +18,8 @@ class LoginView:
         self._frame = None
         self._handle_show_create_user_view = handle_show_RegisterView
         self._handle_login = handle_login
-
+        self._error_variable = None
+        self._error_label = None
         self._initialize()
 
     def destroy(self):
@@ -40,6 +41,20 @@ class LoginView:
             self._handle_login()
         except InvalidCredentialsError:
             self._show_error("Invalid username or password")
+
+    def _show_error(self, message):
+        """Show the error message.
+
+        Args:
+            message (str): Error message
+        """
+        self._error_variable.set(message)
+        self._error_label.grid()
+
+    def _hide_error(self):
+        """Hide the error message.
+        """
+        self._error_label.grid_remove()
 
     def _initialize_username_field(self):
         """Initializes username entry field.
@@ -68,6 +83,17 @@ class LoginView:
         """
 
         self._frame = ttk.Frame(master=self._root)
+
+        self._error_variable = StringVar(self._frame)
+
+        self._error_label = ttk.Label(
+            master=self._frame,
+            textvariable=self._error_variable,
+            foreground="red"
+        )
+
+        self._error_label.grid(row=6,padx=5, pady=5)
+
         label1 = ttk.Label(master=self._frame, text="Login")
         
 
@@ -83,6 +109,8 @@ class LoginView:
         button_create.grid(padx=5, pady=5, sticky=constants.EW)
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
+        
+        self._hide_error()
 
     def pack(self):
         """Shows the frame.
