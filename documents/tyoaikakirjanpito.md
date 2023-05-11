@@ -18,4 +18,6 @@
 | 30.4| 2    | Writing docstring documentation |
 | 2.5| 1    | Making class diagram |
 | 2.5| 1    | Writing instructions documentation |
-| Total|48| |
+| 11.5| 1    | Login credentials error displayed correctly in the UI |
+| 11.5| 0,5    | Entities folder|
+| Total|49,5| |
