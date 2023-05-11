@@ -1,4 +1,4 @@
-from src.user import User # pylint: disable=import-error
+from src.entities.user import User # pylint: disable=import-error
 from src.database_connection import get_database_connection # pylint: disable=import-error
 
 def get_user_by_row(row):

@@ -1,5 +1,5 @@
 import unittest
-from user import User
+from src.entities.user import User
 import os, sys
 from initialize_database import initialize_database
 

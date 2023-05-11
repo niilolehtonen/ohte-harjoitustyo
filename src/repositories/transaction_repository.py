@@ -1,4 +1,4 @@
-from src.transaction import Transaction # pylint: disable=import-error
+from src.entities.transaction import Transaction # pylint: disable=import-error
 from src.database_connection import get_database_connection # pylint: disable=import-error
 
 class TransactionRepository:

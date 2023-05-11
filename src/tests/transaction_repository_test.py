@@ -1,6 +1,6 @@
 import unittest
-from transaction import Transaction
-from user import User
+from src.entities.transaction import Transaction
+from entities.user import User
 import os, sys
 from initialize_database import initialize_database
 

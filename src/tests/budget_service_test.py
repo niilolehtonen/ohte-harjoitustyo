@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
-from user import User
+from entities.user import User
 import os,sys
 dir = os.path.dirname("budget_service.py")
 sys.path.append(dir)
@@ -9,6 +9,7 @@ from src.services.budget_service import BudgetService, InvalidCredentialsError
 class BudgetServiceTest(unittest.TestCase):
     def setUp(self):
         self.user_repository = MagicMock()
+        self.transaction_repository = MagicMock()
         self.budget_service = BudgetService(self.user_repository)
 
     def test_create_user(self):
@@ -48,3 +49,8 @@ class BudgetServiceTest(unittest.TestCase):
             self.budget_service.login(username, password)
 
         self.user_repository.search_username.assert_called_once_with(username)
+
+    def test_new_income(self):
+        name = 'paycheck'
+        amount = 500
+        self.budget_service.new_income()
