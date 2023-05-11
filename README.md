@@ -15,6 +15,7 @@
 
 - [Release v1.0 (Week 5)](https://github.com/niilolehtonen/ohte-harjoitustyo/releases/tag/Week5)
 - [Release v2.0 (Week 6)](https://github.com/niilolehtonen/ohte-harjoitustyo/releases/tag/Week6)
+- [Final Release](https://github.com/niilolehtonen/ohte-harjoitustyo/releases/tag/FinalRelease)
 ## Installation
 
 1. Install dependecies:
